@@ -1,0 +1,111 @@
+{
+  "status": 1,
+  "data": [
+    {
+      "id": 29,
+      "title": "House 1",
+      "topic1": "A1:B2:C3:D4:E5:F6",
+      "topic2": null,
+      "topic3": null,
+      "topic4": null,
+      "topic5": null,
+      "topic6": null,
+      "topic7": null,
+      "topic8": null,
+      "topic9": null,
+      "topic10": null,
+      "status": "1",
+      "rooms": [
+        {
+          "id": 28,
+          "title": "Room 1",
+          "status": "1",
+          "switchPowers": []
+        }
+      ],
+      "isOwner": true
+    },
+    {
+      "id": 30,
+      "title": "House 2",
+      "topic1": "A1:B2:C3:D4:E5:F6",
+      "topic2": null,
+      "topic3": null,
+      "topic4": null,
+      "topic5": null,
+      "topic6": null,
+      "topic7": null,
+      "topic8": null,
+      "topic9": null,
+      "topic10": null,
+      "status": "1",
+      "rooms": [
+        {
+          "id": 29,
+          "title": "اتاق 1",
+          "status": "1",
+          "switchPowers": [
+            {
+              "id": 56,
+              "title": "hommm 1",
+              "value1": "2",
+              "value2": "ABCD2K",
+              "value3": "00",
+              "value4": "Light 1,Light 2",
+              "value5": "1,1",
+              "value6": null,
+              "value7": null,
+              "value8": null,
+              "value9": null,
+              "value10": null,
+              "status": "1"
+            }
+          ]
+        }
+      ],
+      "isOwner": true
+    },
+    {
+      "id": 35,
+      "title": "House 3",
+      "topic1": "A1:B2:C3:D4:E5:F6",
+      "topic2": null,
+      "topic3": "09232527612",
+      "topic4": null,
+      "topic5": null,
+      "topic6": null,
+      "topic7": null,
+      "topic8": null,
+      "topic9": null,
+      "topic10": null,
+      "status": "1",
+      "rooms": [],
+      "isOwner": true
+    },
+    {
+      "id": 36,
+      "title": "House 4",
+      "topic1": "AABBCCDDEEFF",
+      "topic2": null,
+      "topic3": "09139080038",
+      "topic4": null,
+      "topic5": null,
+      "topic6": null,
+      "topic7": null,
+      "topic8": null,
+      "topic9": null,
+      "topic10": null,
+      "status": "1",
+      "rooms": [
+        {
+          "id": 33,
+          "title": "Room 1",
+          "status": "1",
+          "switchPowers": []
+        }
+      ],
+      "isOwner": true
+    }
+  ],
+  "message": "اطلاعات خانه ها"
+}

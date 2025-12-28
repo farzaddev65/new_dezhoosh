@@ -1,0 +1,122 @@
+Folder PATH listing for volume Developer
+Volume serial number is 767C-ACD9
+D:.
+|   lib_structure.txt
+|   main.dart
+|   
++---app
+|   +---app_routes
+|   |       app_routs.dart
+|   |       
+|   +---core
+|   |   |   core.dart
+|   |   |   
+|   |   +---app_services
+|   |   |       app_service.dart
+|   |   |       hive_service.dart
+|   |   |       
+|   |   +---constants
+|   |   |       app_constants.dart
+|   |   |       hive_constants.dart
+|   |   |       
+|   |   +---extensions
+|   |   |       align_extension.dart
+|   |   |       extensions.dart
+|   |   |       iterable_extension.dart
+|   |   |       number_extensions.dart
+|   |   |       string_extensions.dart
+|   |   |       text_extension.dart
+|   |   |       widget_extension.dart
+|   |   |       
+|   |   +---localization
+|   |   |       app_locale.dart
+|   |   |       
+|   |   +---managers
+|   |   |   \---hive_manager
+|   |   |           hive_manager.dart
+|   |   |           hive_registry.dart
+|   |   |           
+|   |   +---theme
+|   |   |       app_colors.dart
+|   |   |       dark_theme.dart
+|   |   |       light_theme.dart
+|   |   |       theme_colors.dart
+|   |   |       theme_controller.dart
+|   |   |       theme_provider.dart
+|   |   |       theme_repository.dart
+|   |   |       
+|   |   +---ui
+|   |   |   +---bottom_sheets
+|   |   |   \---dialogs
+|   |   \---utils
+|   |           app_config.dart
+|   |           get_utils.dart
+|   |           storage.dart
+|   |           utils.dart
+|   |           
+|   +---data
+|   |   +---api
+|   |   |       api_client.dart
+|   |   |       api_exceptions.dart
+|   |   |       endpoints.dart
+|   |   |       
+|   |   +---models
+|   |   |   |   data.dart
+|   |   |   |   
+|   |   |   +---question
+|   |   |   |       question.dart
+|   |   |   |       
+|   |   |   \---user
+|   |   |           user_model.dart
+|   |   |           user_model.g.dart
+|   |   |           
+|   |   \---repositories
+|   |           base_repositories.dart
+|   |           user_repository.dart
+|   |           
+|   +---modules
+|   |   +---empty
+|   |   |   +---bindings
+|   |   |   +---controllers
+|   |   |   +---views
+|   |   |   \---widgets
+|   |   \---home
+|   |       +---bindings
+|   |       |       home_binding.dart
+|   |       |       
+|   |       +---controllers
+|   |       |       home_controller.dart
+|   |       |       
+|   |       +---views
+|   |       |       home_view.dart
+|   |       |       
+|   |       \---widgets
+|   \---widgets
+|       \---componnents
+|               app_bar.dart
+|               app_text.dart
+|               button.dart
+|               drop_down.dart
+|               extensions.dart
+|               global.dart
+|               image.dart
+|               image2.dart
+|               masked_image.dart
+|               other.dart
+|               rating.dart
+|               shimmer.dart
+|               switch.dart
+|               text_field.dart
+|               
++---generated
+|   |   l10n.dart
+|   |   
+|   \---intl
+|           messages_all.dart
+|           messages_en.dart
+|           messages_fa.dart
+|           
+\---l10n
+        intl_en.arb
+        intl_fa.arb
+        
