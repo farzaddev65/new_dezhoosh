@@ -1,4 +1,5 @@
 import 'package:bestdroid/app/core/constants/hive_constants.dart';
+import 'package:bestdroid/app/core/managers/hive_manager/hive_manager.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
 
@@ -6,7 +7,7 @@ import 'get_utils.dart' as GetPlatform;
 
 bool get isWeb => GetPlatform.isWeb && kIsWeb;
 bool get isAndroid => GetPlatform.isAndroid && !kIsWeb;
-bool get isPersianLang => (Hive.box(HiveConstants.hiveLocalStorage).get('locale') ?? 'fa') == 'fa';
+bool get isPersianLang => HiveManager.getString('locale',defaultValue: 'fa')=='fa';
 
 // part of 'utils.dart';
 //

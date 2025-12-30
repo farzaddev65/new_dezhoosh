@@ -1,4 +1,5 @@
 import 'package:bestdroid/app/core/constants/hive_constants.dart';
+import 'package:bestdroid/app/core/managers/hive_manager/hive_manager.dart';
 import 'package:bestdroid/app/core/utils/storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -13,22 +14,21 @@ class AppLocale {
 
   static final localeNotifier = ValueNotifier<Locale>(const Locale('fa'));
 
-  static Locale get currentLocale => Locale(Storage.getString('locale') ?? 'fa');
+  static Locale get currentLocale => Locale(Storage.getString(HiveConstants.locale,defaultValue: 'fa'));
 
   static S get current => S.current;
 
   static Future<void> init() async {
     await Hive.initFlutter();
     final localeCode =
-        Hive.box(HiveConstants.hiveLocalStorage).get(HiveConstants.locale) ?? 'fa';
+    Storage.getString(HiveConstants.locale,defaultValue: 'fa');
     localeNotifier.value = Locale(localeCode);
     S.load(localeNotifier.value);
   }
 
   static Future<void> setLocale(Locale locale) async {
     localeNotifier.value = locale;
-    await Hive.box(HiveConstants.hiveLocalStorage)
-        .put(HiveConstants.locale, locale.languageCode);
+    await Storage.setString(HiveConstants.locale,locale.languageCode);
     S.load(locale);
   }
 

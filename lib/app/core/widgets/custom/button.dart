@@ -7,7 +7,6 @@ import 'package:loading_indicator/loading_indicator.dart';
 import 'package:shimmer/shimmer.dart';
 
 class AppButton extends StatefulWidget {
-
   const AppButton({
     super.key,
     required this.text,
@@ -17,6 +16,7 @@ class AppButton extends StatefulWidget {
     this.borderRadius,
     this.isLoading = false,
   });
+
   final String text;
   final VoidCallback? onPressed;
   final double? borderRadius;
@@ -48,7 +48,7 @@ class _AppButtonState extends State<AppButton> with SingleTickerProviderStateMix
 
   @override
   Widget build(BuildContext context) {
-    final borderRadius = widget.borderRadius ?? 12.0;
+    final borderRadius = widget.borderRadius ?? 8.0;
 
     return AnimatedBuilder(
       animation: _controller,
@@ -97,9 +97,9 @@ class _AppButtonState extends State<AppButton> with SingleTickerProviderStateMix
                                 widget.text,
                                 style: TextStyle(
                                   // color: widget.textColor ?? context.theme.primaryColorDark,
-                                  color: widget.textColor ?? Colors.black87,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600,
+                                  color: widget.textColor ?? Colors.white,
+                                  fontSize: 18, //
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ],
@@ -133,10 +133,15 @@ class _AppButtonState extends State<AppButton> with SingleTickerProviderStateMix
                       borderRadius: BorderRadius.circular(borderRadius),
                     ),
                   ),
-                  child: Text(
-                    // 'text',
-                    widget.text,
-                  ).labelLarge(color: Colors.black87),
+                  child:
+                      Text(
+                        // 'text',
+                        widget.text,
+                      ).labelLarge(
+                        color: widget.textColor ?? Colors.white,
+                        fontSize: 18, //
+                        fontWeight: FontWeight.bold,
+                      ),
                 ),
               );
       },
@@ -145,7 +150,6 @@ class _AppButtonState extends State<AppButton> with SingleTickerProviderStateMix
 }
 
 class AppButton3 extends StatefulWidget {
-
   const AppButton3({
     super.key,
     required this.text,
@@ -155,6 +159,7 @@ class AppButton3 extends StatefulWidget {
     this.borderRadius,
     this.isLoading = false,
   });
+
   final String text;
   final VoidCallback? onPressed;
   final double? borderRadius;
@@ -255,7 +260,6 @@ class _AppButton3State extends State<AppButton3> with SingleTickerProviderStateM
 }
 
 class AppButtonBorder extends StatelessWidget {
-
   const AppButtonBorder({
     super.key,
     required this.text,
@@ -272,6 +276,7 @@ class AppButtonBorder extends StatelessWidget {
     this.trailingIcon,
     this.mainAxisSize,
   });
+
   final String text;
   final VoidCallback onPressed;
   final Color? backgroundColor;
@@ -329,12 +334,12 @@ class AppButtonBorder extends StatelessWidget {
 }
 
 class NeonButton extends StatelessWidget {
-
   const NeonButton({
     super.key,
     required this.text,
     required this.onPressed,
   });
+
   final String text;
   final VoidCallback onPressed;
 

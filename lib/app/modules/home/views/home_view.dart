@@ -7,6 +7,7 @@ import 'package:bestdroid/app/modules/home/controllers/home_controller.dart';
 import 'package:bestdroid/app/modules/home/widgets/item_switch_lt.dart';
 import 'package:bestdroid/app/modules/home/widgets/item_switch_pa.dart';
 import 'package:bestdroid/app/modules/home/widgets/item_switch_pt.dart';
+import 'package:bestdroid/app/modules/test_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -53,11 +54,18 @@ class HomeView extends GetView<HomeController> {
                     controller.listsLt,
                     (model) => ItemSwitchLt(model: model),
                   ).marginBottom(16).marginSymmetric(horizontal: 16),
-                  _section(
-                    'پریز ها',
-                    controller.listsPt,
-                    (model) => ItemSwitchPt(model: model),
-                  ).marginBottom(16).marginSymmetric(horizontal: 16),
+                  Hero(
+                    tag: 'L1',
+                    child: _section(
+                      'پریز ها',
+                      controller.listsPt,
+                      (model) => ItemSwitchPt(model: model).onTap(
+                        () {
+                          Get.to(TestSwitch());
+                        },
+                      ),
+                    ).marginBottom(16).marginSymmetric(horizontal: 16),
+                  ),
                   _section(
                     'پرده ها',
                     controller.listsPa,

@@ -28,6 +28,7 @@ class AppText extends StatelessWidget {
     final style = selector(theme).copyWith(
       color: color,
       fontSize: fontSize,
+        fontWeight: fontWeight,
     );
 
     return Text(

@@ -109,7 +109,7 @@ extension AppTextStyleExtensions on Text {
       maxLines: maxLines,
       overflow: overflow,
       color: color,
-      fontSize: fontSize ?? 16,
+      fontSize: fontSize ?? 18,
       fontWeight: fontWeight ?? FontWeight.w300,
     );
   }
@@ -122,7 +122,7 @@ extension AppTextStyleExtensions on Text {
       maxLines: maxLines,
       overflow: overflow,
       color: color,
-      fontSize: fontSize ?? 16,
+      fontSize: fontSize ?? 18,
       fontWeight: fontWeight ?? FontWeight.w500,
     );
   }
@@ -134,7 +134,7 @@ extension AppTextStyleExtensions on Text {
       maxLines: maxLines,
       overflow: overflow,
       color: color,
-      fontSize: fontSize ?? 16,
+      fontSize: fontSize ?? 18,
       fontWeight: fontWeight ?? FontWeight.bold,
     );
   }

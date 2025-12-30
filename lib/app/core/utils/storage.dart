@@ -40,24 +40,24 @@ class Storage {
     await box.put(key, value);
   }
 
-  static bool? getBool(String key) {
+  static bool getBool(String key, {bool defaultValue = false}) {
     final box = Hive.box(_boxName);
-    return box.get(key) as bool?;
+    return box.get(key, defaultValue: defaultValue) as bool;
   }
 
-  static int? getInt(String key) {
+  static int getInt(String key, {int defaultValue = 0}) {
     final box = Hive.box(_boxName);
-    return box.get(key) as int?;
+    return box.get(key, defaultValue: defaultValue) as int;
   }
 
-  static double? getDouble(String key) {
+  static double getDouble(String key, {double defaultValue = 0.0}) {
     final box = Hive.box(_boxName);
-    return box.get(key) as double?;
+    return box.get(key, defaultValue: defaultValue) as double;
   }
 
-  static String? getString(String key) {
+  static String getString(String key, {String defaultValue = ''}) {
     final box = Hive.box(_boxName);
-    return box.get(key) as String?;
+    return box.get(key, defaultValue: defaultValue) as String;
   }
 
   static List<String>? getStringList(String key) {

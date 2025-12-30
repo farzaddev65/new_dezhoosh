@@ -179,6 +179,9 @@ class AppTextField extends StatefulWidget {
     this.enabled,
     this.onFieldSubmitted,
     this.maxLength,
+    this.fillColor,
+    this.textStyle,
+    this.thintStyle,
     this.textInputAction,
   });
 
@@ -196,9 +199,12 @@ class AppTextField extends StatefulWidget {
   final Color? enabledBorderColor;
   final Color? focusedBorderColor;
   final Color? prefixColor;
+  final Color? fillColor;
   final int? maxLength;
   final bool? enabled;
   final TextInputAction? textInputAction;
+  final TextStyle? textStyle;
+  final TextStyle? thintStyle;
   final ValueChanged<String>? onFieldSubmitted;
   final String? Function(String?)? validator;
   final AutovalidateMode? autoValidateMode;
@@ -236,15 +242,18 @@ class _AppTextFieldState extends State<AppTextField> {
     final double border = widget.borderRadius ?? 8;
 
     return TextFormField(
+
       controller: widget.controller,
       focusNode: _focusNode,
       maxLength: widget.maxLength,
       keyboardType: widget.textInputType,
       validator: _validatorWrapper,
       enabled: widget.enabled,
+
       textInputAction: nextFocusNode != null ? TextInputAction.next : widget.textInputAction,
       autovalidateMode: widget.autoValidateMode ?? AutovalidateMode.disabled,
-      style: context.textTheme.titleLarge!.copyWith(color: context.theme.primaryColorDark),
+      style:widget.textStyle ??context.textTheme.titleLarge!.copyWith(color: context.theme.primaryColorDark,height: 0.6,fontSize: 16,fontWeight: FontWeight.bold),
+
       onFieldSubmitted: (value) {
         if (widget.onFieldSubmitted != null) {
           widget.onFieldSubmitted?.call(value);
@@ -254,10 +263,13 @@ class _AppTextFieldState extends State<AppTextField> {
       },
       decoration: InputDecoration(
         labelText: widget.label,
+        hintStyle: widget.thintStyle ??context.textTheme.titleLarge!.copyWith(color: context.theme.primaryColorDark.withValues(alpha: 0.3),height: 0.6,fontSize: 16,fontWeight: FontWeight.bold),
+
         labelStyle: context.textTheme.titleLarge!.copyWith(color: context.theme.primaryColorDark.withValues(alpha: 0.8)),
         floatingLabelStyle: context.textTheme.displayLarge!.copyWith(color: context.theme.primaryColorDark.withValues(alpha: 0.8)),
         counterStyle: const TextStyle(height: 0),
-        //
+        fillColor: widget.fillColor??context.theme.cardColor,
+        filled: true,
         counterText: (widget.showCounter ?? false) ? null : '',
         // floatingLabelStyle: TextStyle(
         //   fontSize: 16, // اندازه وقتی لیبل بالا میره
@@ -280,21 +292,24 @@ class _AppTextFieldState extends State<AppTextField> {
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(border),
           borderSide: BorderSide(
-            color: widget.enabledBorderColor?.withValues(alpha: 0.6) ?? context.theme.hintColor.withValues(alpha: 0.5),
+            // color: widget.enabledBorderColor?.withValues(alpha: 0.6) ?? context.theme.hintColor.withValues(alpha: 0.5),
+            color: Colors.transparent,
             width: 2,
           ),
         ),
         disabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(border),
           borderSide: BorderSide(
-            color: widget.enabledBorderColor?.withValues(alpha: 0.6) ?? context.theme.hintColor.withValues(alpha: 0.5),
+            // color: widget.enabledBorderColor?.withValues(alpha: 0.6) ?? context.theme.hintColor.withValues(alpha: 0.5),
+            color: Colors.transparent,
             width: 2,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(border),
           borderSide: BorderSide(
-            color: widget.focusedBorderColor ?? context.theme.hintColor, //
+            // color: widget.focusedBorderColor ?? context.theme.hintColor, //
+            color: Colors.transparent,
             width: 2, //
           ),
         ),

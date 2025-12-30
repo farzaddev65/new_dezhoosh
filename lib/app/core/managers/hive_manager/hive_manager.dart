@@ -1,37 +1,61 @@
 import 'package:hive/hive.dart';
 
-class HiveManager<T> {
-  final String boxName;
+class HiveManager {
+  static const String _boxName = 'app_storage';
 
-  HiveManager(this.boxName);
+  static Box<dynamic>? _box;
 
-  Future<void> add(T item) async {
-    final box = await Hive.openBox<T>(boxName);
-    await box.add(item);
+  /// Call once (e.g. in main)
+  static Future<void> init() async {
+    _box ??= await Hive.openBox<dynamic>(_boxName);
   }
 
-  Future<void> addList(List<T> items) async {
-    final box = await Hive.openBox<T>(boxName);
-    await box.addAll(items);
+
+  static Future<void> setBool(String key, bool value) async {
+    await _box!.put(key, value);
   }
 
-  Future<List<T>> getList() async {
-    final box = await Hive.openBox<T>(boxName);
-    return box.values.toList();
+  static Future<void> setString(String key, String value) async {
+    await _box!.put(key, value);
   }
 
-  Future<T?> get(int key) async {
-    final box = await Hive.openBox<T>(boxName);
-    return box.get(key);
+  static Future<void> setInt(String key, int value) async {
+    await _box!.put(key, value);
   }
 
-  Future<void> update(int key, T item) async {
-    final box = await Hive.openBox<T>(boxName);
-    await box.put(key, item);
+  static Future<void> setDouble(String key, double value) async {
+    await _box!.put(key, value);
   }
 
-  Future<void> delete(int key) async {
-    final box = await Hive.openBox<T>(boxName);
-    await box.delete(key);
+  /// ---------- GETTERS ----------
+
+  static bool getBool(String key, {bool defaultValue = false}) {
+    return _box!.get(key, defaultValue: defaultValue) as bool;
+  }
+
+  static String getString(String key, {String defaultValue = ''}) {
+    return _box!.get(key, defaultValue: defaultValue) as String;
+  }
+
+  static int getInt(String key, {int defaultValue = 0}) {
+    return _box!.get(key, defaultValue: defaultValue) as int;
+  }
+
+  static double getDouble(String key, {double defaultValue = 0.0}) {
+    return _box!.get(key, defaultValue: defaultValue) as double;
+  }
+
+  /// ---------- UTILITIES ----------
+
+  static bool contains(String key) {
+    return _box!.containsKey(key);
+  }
+
+  static Future<void> remove(String key) async {
+    await _box!.delete(key);
+  }
+
+  static Future<void> clearAll() async {
+    await _box!.clear();
   }
 }

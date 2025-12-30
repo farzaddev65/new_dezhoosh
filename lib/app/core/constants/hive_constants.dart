@@ -6,4 +6,7 @@ class HiveConstants {
   static const String user='hiveUser';
   static const String isDark='hiveIsDark';
   static const String locale='locale';
+
+  static const String product = "product_box";
+  static const String isLogin = "is_login";
 }
