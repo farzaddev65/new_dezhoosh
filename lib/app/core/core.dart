@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Core {
   static String? token;
@@ -11,4 +13,9 @@ class Core {
       sendTimeout: const Duration(seconds: 25),
     );
   }
+
+  static BoxDecoration cardDecoration(BuildContext context)=>BoxDecoration(
+    borderRadius: BorderRadius.circular(8),
+    color: context.theme.cardColor,
+  );
 }

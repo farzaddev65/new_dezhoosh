@@ -7,17 +7,15 @@ class LightTheme {
     scaffoldBackgroundColor: AppColorsLight.scaffoldBackgroundColor,
     primaryColorDark: AppColorsLight.primaryColorDark,
     primaryColor: AppColorsLight.primaryColor,
+    disabledColor: AppColorsLight.disableColor,
     cardColor: AppColorsLight.cardColor,
+    appBarTheme: AppBarThemeData(
+      backgroundColor: Colors.transparent,
+    ),
     colorScheme: ColorScheme.fromSeed(
       seedColor: Colors.teal,
       brightness: Brightness.light,
-
-
-
-    ).copyWith(
-      onSurface: Colors.white, // رنگ تمام متن‌ها
-
-    ),
+    ).copyWith(onSurface: Colors.white),
     useMaterial3: true,
   );
 }

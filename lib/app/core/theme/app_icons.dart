@@ -16,6 +16,11 @@ class AppIcons{
   static String socket3Fill='$base/socket_3_fill.svg';
   static String thermometer='$base/thermometer.svg';
   static String support='$base/support.svg';
+  static String avatar='$base/avatar.svg';
+  static String hubSetting='$base/hub_setting.svg';
+  static String resetFactory='$base/reset_factory.svg';
+  static String onlineMode='$base/online_mode.svg';
+  static String backup='$base/backup.svg';
 }
 class AppImages{
   static String base='assets/images';

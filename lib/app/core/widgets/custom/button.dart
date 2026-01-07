@@ -15,12 +15,14 @@ class AppButton extends StatefulWidget {
     this.textColor,
     this.borderRadius,
     this.isLoading = false,
+    this.enabled = true,
   });
 
   final String text;
   final VoidCallback? onPressed;
   final double? borderRadius;
   final bool isLoading;
+  final bool enabled;
   final Color? backgroundColor;
   final Color? textColor;
 
@@ -126,7 +128,8 @@ class _AppButtonState extends State<AppButton> with SingleTickerProviderStateMix
                 child: ElevatedButton(
                   onPressed: widget.isLoading ? null : widget.onPressed,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: widget.backgroundColor ?? context.theme.primaryColor, //
+                    // backgroundColor: widget.backgroundColor ?? context.theme.primaryColor, //
+                    backgroundColor:widget.enabled? widget.backgroundColor ?? context.theme.primaryColor:context.theme.disabledColor, //
                     shadowColor: widget.backgroundColor ?? context.theme.cardColor, //
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap, // حذف فضای اضافه
                     shape: RoundedRectangleBorder(

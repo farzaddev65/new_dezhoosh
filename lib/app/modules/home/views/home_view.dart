@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:bestdroid/app/app_routes/app_routs.dart';
 import 'package:bestdroid/app/core/extensions/extensions.dart';
 import 'package:bestdroid/app/core/theme/app_icons.dart';
 import 'package:bestdroid/app/core/widgets/custom/image.dart';
@@ -20,62 +21,69 @@ class HomeView extends GetView<HomeController> {
     // TODO: implement build
     return Scaffold(
       appBar: _appbar(),
+      backgroundColor: Colors.transparent, // مهم
       extendBodyBehindAppBar: true,
-      body: Stack(
-        children: [
-          /// 1️⃣ Background
-          Positioned.fill(child: Image.asset(AppImages.image8, fit: BoxFit.cover)),
+      body: Container(
+        constraints: BoxConstraints(
+          minHeight: MediaQuery.of(context).size.height,
+        ),
+        child: Stack(
+          children: [
+            /// 1️⃣ Background
+            Positioned.fill(child: Image.asset(AppImages.image8, fit: BoxFit.cover,
+                alignment: Alignment.topCenter)),
 
-          Positioned.fill(child: BackdropFilter(filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6))),
+            Positioned.fill(child: BackdropFilter(filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6))),
 
-          SafeArea(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Text('دستگاهها').labelLarge(fontSize: 32), AppImage(AppIcons.edit)],
-                  ).marginSymmetric(horizontal: 16),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      spacing: 8,
-                      children: [
-                        _category(title: 'همه', index: 0),
-                        _category(title: 'روشنایی', index: 1),
-                        _category(title: 'پرده ها', index: 2),
-                        _category(title: 'صوتی و تصویری', index: 3),
-                      ],
-                    ),
-                  ), //
-
-                  _section(
-                    'روشنایی',
-                    controller.listsLt,
-                    (model) => ItemSwitchLt(model: model),
-                  ).marginBottom(16).marginSymmetric(horizontal: 16),
-                  Hero(
-                    tag: 'L1',
-                    child: _section(
-                      'پریز ها',
-                      controller.listsPt,
-                      (model) => ItemSwitchPt(model: model).onTap(
-                        () {
-                          Get.to(TestSwitch());
-                        },
+            SafeArea(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [Text('دستگاهها').labelLarge(fontSize: 32), AppImage(AppIcons.edit)],
+                    ).marginSymmetric(horizontal: 16),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        spacing: 8,
+                        children: [
+                          _category(title: 'همه', index: 0),
+                          _category(title: 'روشنایی', index: 1),
+                          _category(title: 'پرده ها', index: 2),
+                          _category(title: 'صوتی و تصویری', index: 3),
+                        ],
                       ),
+                    ), //
+
+                    _section(
+                      'روشنایی',
+                      controller.listsLt,
+                      (model) => ItemSwitchLt(model: model),
                     ).marginBottom(16).marginSymmetric(horizontal: 16),
-                  ),
-                  _section(
-                    'پرده ها',
-                    controller.listsPa,
-                    (model) => ItemSwitchPa(model: model),
-                  ).marginBottom(16).marginSymmetric(horizontal: 16),
-                ],
+                    Hero(
+                      tag: 'L1',
+                      child: _section(
+                        'پریز ها',
+                        controller.listsPt,
+                        (model) => ItemSwitchPt(model: model).onTap(
+                          () {
+                            Get.to(TestSwitch());
+                          },
+                        ),
+                      ).marginBottom(16).marginSymmetric(horizontal: 16),
+                    ),
+                    _section(
+                      'پرده ها',
+                      controller.listsPa,
+                      (model) => ItemSwitchPa(model: model),
+                    ).marginBottom(16).marginSymmetric(horizontal: 16),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -83,7 +91,9 @@ class HomeView extends GetView<HomeController> {
   AppBar _appbar() => AppBar(
     actionsPadding: EdgeInsets.symmetric(horizontal: 8),
     backgroundColor: Colors.transparent,
-    actions: [AppImage(AppIcons.add), SizedBox(width: 16), AppImage(AppIcons.options)],
+    actions: [AppImage(AppIcons.add), SizedBox(width: 16), AppImage(AppIcons.options).onTap(() {
+      Get.toNamed(AppRouts.setting);
+    },)],
   );
 
   Widget _category({required String title, required int index}) => Container(

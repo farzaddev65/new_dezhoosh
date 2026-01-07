@@ -263,10 +263,10 @@ class _AppTextFieldState extends State<AppTextField> {
       },
       decoration: InputDecoration(
         labelText: widget.label,
-        hintStyle: widget.thintStyle ??context.textTheme.titleLarge!.copyWith(color: context.theme.primaryColorDark.withValues(alpha: 0.3),height: 0.6,fontSize: 16,fontWeight: FontWeight.bold),
+        hintStyle: widget.thintStyle ??TextStyle(color: context.theme.primaryColorDark.withValues(alpha: 0.8),fontWeight: FontWeight.bold,height: 0.6,fontSize: 16),
 
-        labelStyle: context.textTheme.titleLarge!.copyWith(color: context.theme.primaryColorDark.withValues(alpha: 0.8)),
-        floatingLabelStyle: context.textTheme.displayLarge!.copyWith(color: context.theme.primaryColorDark.withValues(alpha: 0.8)),
+        labelStyle: TextStyle(color: context.theme.primaryColorDark.withValues(alpha: 0.8),fontWeight: FontWeight.bold),
+        floatingLabelStyle: TextStyle(color: context.theme.primaryColorDark.withValues(alpha: 0.8),fontWeight: FontWeight.bold),
         counterStyle: const TextStyle(height: 0),
         fillColor: widget.fillColor??context.theme.cardColor,
         filled: true,

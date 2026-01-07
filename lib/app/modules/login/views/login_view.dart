@@ -62,7 +62,7 @@ class LoginView extends GetView<LoginController> {
             SizedBox(height: 48),
             AppButton(
               text: 'ورود',
-              onPressed: () {},
+              onPressed: controller.login,
             ),
             SizedBox().expanded(),
             Text('شماره نسخه:1.0.0').labelLarge(color: context.theme.primaryColorDark.withValues(alpha: 0.5)),

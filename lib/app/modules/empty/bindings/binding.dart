@@ -4,6 +4,6 @@ import 'package:get/get.dart';
 class EmptyBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => EmptyController());
+    Get.put( EmptyController());
   }
 }

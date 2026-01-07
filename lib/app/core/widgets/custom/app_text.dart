@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AppText extends StatelessWidget {
   final String data;
@@ -26,7 +27,7 @@ class AppText extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
     final style = selector(theme).copyWith(
-      color: color,
+      color: color??context.theme.primaryColorDark,
       fontSize: fontSize,
         fontWeight: fontWeight,
     );
