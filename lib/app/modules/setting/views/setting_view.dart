@@ -83,7 +83,7 @@ class SettingView extends GetView<SettingController> {
                     children: [
                       Column(
                         children: [
-                          AppImage(AppImages.image8,width: (Get.width/),),
+                          AppImage(AppImages.image8,width: (Get.width/7),),
                           AppSwitch(value: true, onChanged: (value) => null),
                         ],
                       ),
